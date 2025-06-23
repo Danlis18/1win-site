@@ -1,15 +1,13 @@
 {
-  "name": "angels-finance-site",
+  "name": "1win-site",
   "version": "1.0.0",
-  "description": "Full-featured responsive casino promo site with match API",
+  "description": "Casino and sports betting frontend + backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2"
-  },
-  "engines": {
-    "node": ">=16.0.0"
   }
 }

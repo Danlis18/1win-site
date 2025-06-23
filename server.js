@@ -1,22 +1,20 @@
 
 const express = require('express');
-const path = require('path');
+const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-// Статичні файли (HTML, CSS, JS, медіа)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+app.use(express.static('public'));
 
-// API для live-матчів
+// Симуляція API матчів
 app.get('/api/matches', (req, res) => {
-  // Симуляція live-даних
-  const matches = [
-    { id: 1, teamA: 'Team Alpha', teamB: 'Team Beta', score: '2:1', status: 'live' },
-    { id: 2, teamA: 'Team Gamma', teamB: 'Team Delta', score: '1:3', status: 'finished' },
-  ];
-  res.json(matches);
+    res.json([
+        { teamA: "Team Alpha", teamB: "Team Beta", score: "1:2", time: "45'" },
+        { teamA: "Team Gamma", teamB: "Team Delta", score: "0:0", time: "HT" }
+    ]);
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
